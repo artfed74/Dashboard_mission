@@ -38,6 +38,8 @@
 </template>
 
 <script>
+
+
 import jsonData from '../../data.json';
 
 export default {
