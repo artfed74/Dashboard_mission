@@ -8,9 +8,10 @@
         <input type="checkbox" v-model="isDragEnabled">
         <span class="slider"></span>
       </label>
-      <div class="text">
+      <div class="text" style="font-size: 20px;">
          Click&drag
       </div>
+      <div class="name" style="font-size: 24px;">Dashboard</div>
     </div>
     <div
       class="card-container"
@@ -52,10 +53,12 @@ export default {
     };
   },
   mounted() {
+       // Берем дефолтные значения из jsona
     const localCards = JSON.parse(localStorage.getItem("cards"));
     if (localCards) {
         this.cards = localCards;    
     } else {
+      // Если в локалке нет данных, то берём наши дефолтные карточки из data.json
         this.cards = jsonData;
         this.saveCardsToLocalStorage(); 
     }
@@ -100,6 +103,7 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&family=Playwrite+MX:wght@100..400&display=swap');
 .main-container {
   max-width: 1800px;
   margin: 0 auto;
@@ -116,7 +120,12 @@ export default {
   text-decoration: none;
   margin-right: 15px;
 }
-
+.name{
+  margin-left: auto;
+  font-family: "Playwrite IT Moderna", cursive;
+  font-optical-sizing: auto;
+ 
+}
 .add-button {
   background-color: #4caf50;
   border: none;
@@ -132,7 +141,7 @@ export default {
   background-color: #45a049;
 }
 
-/* контейнр карт */
+/* контейнер карт */
 .card-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -245,5 +254,7 @@ input:checked + .slider:before {
   font-size: 18px;
   color: #333;
   margin-left: 10px;
+  font-family: "Playwrite IT Moderna", cursive;
+  font-optical-sizing: auto;
 }
 </style>

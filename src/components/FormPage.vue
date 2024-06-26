@@ -1,5 +1,5 @@
 <template>
-  <h1>Добавление записи</h1>
+  <h1 style="font-weight: 300;">Добавление записи</h1>
   <div class="form-container">
     <form @submit.prevent="submitCard">
       <div class="form-group">
